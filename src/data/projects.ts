@@ -15,8 +15,8 @@ export const projects = [
   },
 
     {
-        id: "greencare",
-        name: "GreenThumb - Plant Care Assistant",
+        id: "Cultiva",
+        name: "Cultiva - Plant Care Assistant",
         description: "A comprehensive plant care management platform",
         type: "Fullstack",
         tech: ["React", "TypeScript", "Node.js", "PostgreSQL", "Tailwind CSS", "JWT", "Express", "AWS S3", "Google OAuth", "Chart.js"],
@@ -25,7 +25,7 @@ export const projects = [
           "Implemented advanced plant health monitoring system with disease detection, treatment recommendations, and interactive diagnostic workflows to help users maintain healthy plants.",
           "Built robust care scheduling system with automated reminders, weather-based watering adjustments, and detailed plant health analytics with visual trend charts."
         ],
-        demoUrl: "http://green-care-gamma.vercel.app/"
+        demoUrl: "http://cultiva-plant.vercel.app/"
       },
 
     {

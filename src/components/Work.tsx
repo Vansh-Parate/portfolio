@@ -9,8 +9,8 @@ const Work = () => {
         <div key={index} className="group">
           <div className="flex items-start justify-between py-3 px-3 rounded-lg hover:bg-neutral-900/30 transition-colors">
             <div className="flex-1">
-              <div className="flex items-center gap-2 mb-1">
-                <h4 className="text-sm font-medium text-neutral-100">{exp.company}</h4>
+              <div className="flex items-center gap-2 mb-1 cursor-pointer" onClick={() => window.open(exp.social, )}>
+                <h4 className="text-sm font-medium text-neutral-100" >{exp.company}</h4>
               </div>
               <p className="text-xs text-neutral-400 mb-2">{exp.role}</p>
             </div>

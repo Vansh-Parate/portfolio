@@ -66,7 +66,7 @@ const About = () => {
                 </a>
                 
                 <a 
-                  href="https://twitter.com/radeon74055" 
+                  href="https://twitter.com/vanxh10" 
                   className="p-2 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-neutral-400 hover:text-neutral-100 hover-lift hover-glow group"
                   target="_blank"
                   rel="noopener noreferrer"

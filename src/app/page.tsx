@@ -54,7 +54,7 @@ export default function Home(){
               <Avatar src={pfpImage.src} alt="Vansh Parate" size="lg" className="avatar-hover" />
               <div>
                 <h1 className="text-xl font-light text-transition hover:text-neutral-200">Vansh Parate</h1>
-                <p className="text-neutral-400 text-sm text-transition hover:text-neutral-300">@radeon74055</p>
+                <p className="text-neutral-400 text-sm text-transition hover:text-neutral-300">@vanxh10</p>
               </div>
             </div>
 

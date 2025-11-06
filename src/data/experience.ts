@@ -1,14 +1,9 @@
 export const experience = [
     {
-      company: "GSSoC",
+      company: "Hacktoberfest",
       role: "Contributor",
-      period: "2025 - Present",
+      period: "Oct 2025",
       location: "Remote",
+      social: "https://www.linkedin.com/feed/update/urn:li:activity:7391708391720763392/"
     },
-    {
-      company: "Source Start",
-      role: "Contributor",
-      period: "2023 - 2024",
-      location: "Remote",
-    }
   ]
