@@ -31,8 +31,8 @@ const Projects = () => {
           <div className="flex items-center justify-between py-3 px-3 rounded-lg hover:bg-neutral-900/30 transition-all duration-200">
             <div className='flex-1'>
               <div className="flex items-center gap-2 mb-1">
-                <span className="text-neutral-100 font-medium text-sm">{project.name}</span>
-                <span className={`px-1.5 py-0.5 text-[10px] rounded border ${getTypeColor(project.type)}`}>
+                <span className="text-neutral-100 font-satoshi font-medium text-sm">{project.name}</span>
+                <span className={`px-1.5 py-0.5 text-[10px] font-satoshi font-medium rounded border ${getTypeColor(project.type)}`}>
                   {project.type}
                 </span>
               </div>

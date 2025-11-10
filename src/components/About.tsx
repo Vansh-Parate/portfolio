@@ -8,17 +8,17 @@ const About = () => {
   return (
     <div className="space-y-4">
             <div>
-              <p className="text-sm text-neutral-400 leading-relaxed mb-4 text-transition hover:text-neutral-300">
+              <p className="text-sm font-satoshi text-neutral-400 leading-relaxed mb-4 text-transition hover:text-neutral-300">
                 I'm a full-stack developer who believes in building products that make a difference.
               </p>
-              <p className="text-sm text-neutral-400 leading-relaxed mb-4 text-transition hover:text-neutral-300">
+              <p className="text-sm font-satoshi text-neutral-400 leading-relaxed mb-4 text-transition hover:text-neutral-300">
                 I love working with modern web technologies and creating experiences that are both beautiful and
                 functional.
               </p>
             </div>
 
                          <div>
-               <h4 className="text-sm font-medium text-neutral-100 mb-3 flex items-center justify-between text-transition hover:text-neutral-200">
+               <h4 className="text-sm font-satoshi font-medium text-neutral-100 mb-3 flex items-center justify-between text-transition hover:text-neutral-200">
                  Stack
                  <Star className="w-3 h-3 text-yellow-400 pulse-gentle" />
                </h4>
@@ -36,7 +36,7 @@ const About = () => {
              </div>
 
             <div>
-              <h4 className="text-sm font-medium text-neutral-100 mb-3 text-transition hover:text-neutral-200">Contact</h4>
+              <h4 className="text-sm font-satoshi font-medium text-neutral-100 mb-3 text-transition hover:text-neutral-200">Contact</h4>
               <div className="flex items-center gap-3">
                 <a 
                   href="mailto:vanshparate@gmail.com" 

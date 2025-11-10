@@ -216,10 +216,10 @@ export default function GitHubContributions({ username }: GitHubContributionsPro
       <div className="w-full bg-neutral-950 rounded-lg p-6 border border-neutral-800">
         <div className="flex items-center gap-2 mb-4">
           <Github className="w-5 h-5 text-neutral-400" />
-          <h3 className="text-sm font-light text-neutral-300">GitHub Contributions</h3>
+          <h3 className="text-sm font-satoshi font-semibold text-neutral-300">GitHub Contributions</h3>
         </div>
         <div className="h-32 flex items-center justify-center">
-          <p className="text-xs text-neutral-500">Loading contributions...</p>
+          <p className="text-xs font-satoshi text-neutral-500">Loading contributions...</p>
         </div>
       </div>
     );
@@ -230,9 +230,9 @@ export default function GitHubContributions({ username }: GitHubContributionsPro
       <div className="w-full bg-neutral-950 rounded-lg p-6 border border-neutral-800">
         <div className="flex items-center gap-2 mb-4">
           <Github className="w-5 h-5 text-neutral-400" />
-          <h3 className="text-sm font-light text-neutral-300">GitHub Contributions</h3>
+          <h3 className="text-sm font-satoshi font-light text-neutral-300">GitHub Contributions</h3>
         </div>
-        <p className="text-xs text-neutral-500">{error}</p>
+        <p className="text-xs font-satoshi text-neutral-500">{error}</p>
       </div>
     );
   }
@@ -249,12 +249,12 @@ export default function GitHubContributions({ username }: GitHubContributionsPro
   return (
     <div className="w-full rounded-lg p-6 overflow-hidden">
       <div className="flex items-center justify-between mb-4">
-        <h3 className="text-lg font-medium text-neutral-300">GitHub Contributions</h3>
+        <h3 className="text-lg font-satoshi font-medium text-neutral-300">GitHub Contributions</h3>
         <a
           href={`https://github.com/${username}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-md text-neutral-300 hover:text-neutral-200 font-medium transition-colors flex items-center gap-1"
+          className="text-md font-satoshi text-neutral-300 hover:text-neutral-200 font-medium transition-colors flex items-center gap-1"
         >
           Follow <FaGithub className="w-4 h-4" />
         </a>
@@ -281,7 +281,7 @@ export default function GitHubContributions({ username }: GitHubContributionsPro
               return (
                 <span
                   key={`${month}-${idx}`}
-                  className="text-xs text-neutral-300 font-medium absolute"
+                  className="text-xs font-satoshi text-neutral-300 font-medium absolute"
                   style={{ left: `${percentPos}%` }}
                 >
                   {month}
@@ -314,11 +314,11 @@ export default function GitHubContributions({ username }: GitHubContributionsPro
 
       {/* Footer stats and legend */}
       <div className="flex items-center justify-between mt-4 pt-4 border-t border-neutral-800">
-        <p className="text-xs text-neutral-300">
+        <p className="text-xs font-satoshi text-neutral-300">
           {totalContributions} activities in {year}
         </p>
         <div className="flex items-center gap-2">
-          <span className="text-xs text-neutral-300">Less</span>
+          <span className="text-xs font-satoshi text-neutral-300">Less</span>
           <div className="flex gap-[2px]">
             {["none", "low", "medium", "high"].map((level) => (
               <div
@@ -327,7 +327,7 @@ export default function GitHubContributions({ username }: GitHubContributionsPro
               />
             ))}
           </div>
-          <span className="text-xs text-neutral-300">More</span>
+          <span className="text-xs font-satoshi text-neutral-300">More</span>
         </div>
       </div>
     </div>

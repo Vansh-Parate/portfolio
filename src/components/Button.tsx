@@ -26,7 +26,7 @@ export function Button({ children, variant = "default", size = "md", className =
   return (
     <button
       onClick={onClick}
-      className={`inline-flex items-center justify-center rounded-lg font-medium transition-all duration-200 ${variants[variant]} ${sizes[size]} ${className}`}
+      className={`inline-flex items-center justify-center rounded-lg font-satoshi font-medium transition-all duration-200 ${variants[variant]} ${sizes[size]} ${className}`}
     >
       {children}
     </button>

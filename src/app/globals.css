@@ -5,7 +5,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --font-sans: var(--font-museo-sans);
+  --font-sans: var(--font-satoshi);
   --font-mono: var(--font-museo-sans);
 }
 
@@ -123,8 +123,56 @@
   * {
     @apply border-border outline-ring/50;
   }
+
+  html {
+    --font-satoshi: var(--font-satoshi);
+    --font-museo: var(--font-museo-sans);
+  }
+
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-satoshi);
+  }
+
+  /* Heading styles with Satoshi */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-satoshi);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  h1 {
+    @apply text-4xl font-bold;
+    letter-spacing: -0.03em;
+  }
+
+  h2 {
+    @apply text-3xl font-bold;
+    letter-spacing: -0.025em;
+  }
+
+  h3 {
+    @apply text-2xl font-semibold;
+    letter-spacing: -0.02em;
+  }
+
+  h4 {
+    @apply text-xl font-semibold;
+  }
+
+  h5, h6 {
+    @apply text-lg font-medium;
+  }
+
+  /* Paragraph and body text */
+  p, span, div {
+    font-family: var(--font-satoshi);
+  }
+
+  /* Fine-tune text rendering */
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 
@@ -220,6 +268,36 @@
   
   .button-press:active {
     @apply transform scale-95;
+  }
+
+  /* Font family utilities */
+  .font-satoshi {
+    font-family: var(--font-satoshi);
+  }
+
+  .font-museo {
+    font-family: var(--font-museo-sans);
+  }
+
+  /* Typography combinations */
+  .heading-primary {
+    @apply font-satoshi font-bold text-4xl tracking-tight;
+  }
+
+  .heading-secondary {
+    @apply font-satoshi font-bold text-2xl tracking-tight;
+  }
+
+  .heading-tertiary {
+    @apply font-satoshi font-semibold text-xl tracking-tight;
+  }
+
+  .text-body {
+    @apply font-satoshi text-base leading-relaxed;
+  }
+
+  .text-label {
+    @apply font-satoshi font-medium text-sm tracking-wide;
   }
 }
 
