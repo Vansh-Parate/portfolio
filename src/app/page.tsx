@@ -6,6 +6,7 @@ import { Button } from "@/components/Button";
 import Preloader from "@/components/PreLoader";
 import Projects from "@/components/Projects";
 import Work from "@/components/Work";
+import GitHubContributions from "@/components/GitHubContributions";
 import { AnimatedText } from "@/components/Text";
 import { cn } from "@/lib/utils";
 import { AnimatePresence } from "framer-motion";
@@ -110,8 +111,13 @@ export default function Home(){
           </div>
         </div>
 
+        {/* GitHub Contributions */}
+        <div className="-mt-15">
+          <GitHubContributions username="Vansh-Parate" />
+        </div>
+
         {/* Footer */}
-        <div className="mt-12 pt-6 border-t border-neutral-900">
+        <div className="mt-8 pt-6 border-t border-neutral-900">
           <div className="flex items-center justify-between text-xs text-neutral-500">
             <p className="text-transition hover:text-neutral-400">© 2025 Vansh Parate</p>
             <p className="text-transition hover:text-neutral-400">Built with Next.js</p>
