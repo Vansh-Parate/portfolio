@@ -247,87 +247,87 @@ export default function GitHubContributions({ username }: GitHubContributionsPro
   const year = new Date(contributions[contributions.length - 1]?.date || new Date()).getFullYear();
 
   return (
-    <div className="w-full rounded-lg p-6 overflow-hidden">
+    <div className="w-full rounded-lg p-3 sm:p-4 md:p-6 overflow-hidden">
       <div className="flex items-center justify-between mb-4">
-        <h3 className="text-lg font-satoshi font-medium text-neutral-300">GitHub Contributions</h3>
+        <h3 className="text-base sm:text-lg font-satoshi font-medium text-neutral-300">GitHub Contributions</h3>
         <a
           href={`https://github.com/${username}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-md font-satoshi text-neutral-300 hover:text-neutral-200 font-medium transition-colors flex items-center gap-1"
+          className="text-sm sm:text-md font-satoshi text-neutral-300 hover:text-neutral-200 font-medium transition-colors flex items-center gap-1"
         >
           Follow <FaGithub className="w-4 h-4" />
         </a>
       </div>
 
-      <div className="scrollbar-hide w-full">
-        <style>{`
-          .scrollbar-hide::-webkit-scrollbar {
-            display: none;
-          }
-          .scrollbar-hide {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-          }
-        `}</style>
-        <div className="w-full relative">
-          {/* Month labels */}
-          <div className="flex mb-1 h-4 relative w-full">
-            {Object.entries(monthLabels).map(([index, month], idx) => {
-              const currentWeekIndex = parseInt(index);
-              // Calculate percentage position: each week takes up equal space
-              const totalWeeks = weeks.length;
-              const percentPos = (currentWeekIndex / totalWeeks) * 100;
+      <style>{`
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      `}</style>
+      <div className="scrollbar-hide w-full overflow-x-auto pb-2">
+        <div className="inline-block min-w-min">
+          {/* Month labels row */}
+          <div className="flex gap-0.5 sm:gap-1 mb-2 h-3 sm:h-4">
+            {weeks.map((week, weekIndex) => {
+              const firstDay = new Date(week[0].date);
+              const month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"][firstDay.getMonth()];
+              const isFirstDayOfMonth = firstDay.getDate() <= 7;
+
               return (
-                <span
-                  key={`${month}-${idx}`}
-                  className="text-xs font-satoshi text-neutral-300 font-medium absolute"
-                  style={{ left: `${percentPos}%` }}
+                <div
+                  key={`label-${weekIndex}`}
+                  className="flex-shrink-0 flex items-center w-2 sm:w-2.5 md:w-3"
                 >
-                  {month}
-                </span>
+                  {isFirstDayOfMonth && (
+                    <span className="text-[10px] sm:text-xs font-satoshi text-neutral-300 font-medium">
+                      {month}
+                    </span>
+                  )}
+                </div>
               );
             })}
           </div>
 
           {/* Contribution grid */}
-          <div className="flex gap-1 w-full justify-start">
-            {/* Contribution squares */}
-            <div className="flex gap-1">
-              {weeks.map((week, weekIndex) => (
-                <div key={weekIndex} className="flex flex-col gap-1">
-                  {week.map((day) => (
-                    <div
-                      key={day.date}
-                      className={`w-3 h-3 rounded cursor-pointer transition-all duration-200 hover:ring-1 hover:ring-offset-1 hover:ring-offset-neutral-950 hover:ring-green-400 ${getColor(
-                        day.level
-                      )}`}
-                      title={`${day.count} contributions on ${day.date}`}
-                    />
-                  ))}
-                </div>
-              ))}
-            </div>
+          <div className="flex gap-0.5 sm:gap-1">
+            {weeks.map((week, weekIndex) => (
+              <div key={weekIndex} className="flex flex-col gap-0.5 sm:gap-1 flex-shrink-0">
+                {week.map((day) => (
+                  <div
+                    key={day.date}
+                    className={`w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 rounded cursor-pointer transition-all duration-200 hover:ring-1 hover:ring-offset-1 hover:ring-offset-neutral-950 hover:ring-green-400 ${getColor(
+                      day.level
+                    )}`}
+                    title={`${day.count} contributions on ${day.date}`}
+                  />
+                ))}
+              </div>
+            ))}
           </div>
         </div>
       </div>
 
       {/* Footer stats and legend */}
       <div className="flex items-center justify-between mt-4 pt-4 border-t border-neutral-800">
-        <p className="text-xs font-satoshi text-neutral-300">
+        <p className="text-[10px] sm:text-xs font-satoshi text-neutral-300">
           {totalContributions} activities in {year}
         </p>
         <div className="flex items-center gap-2">
-          <span className="text-xs font-satoshi text-neutral-300">Less</span>
+          <span className="text-[10px] sm:text-xs font-satoshi text-neutral-300">Less</span>
           <div className="flex gap-[2px]">
             {["none", "low", "medium", "high"].map((level) => (
               <div
                 key={level}
-                className={`w-3 h-3 rounded ${getColor(level)}`}
+                className={`w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 rounded ${getColor(level)}`}
               />
             ))}
           </div>
-          <span className="text-xs font-satoshi text-neutral-300">More</span>
+          <span className="text-[10px] sm:text-xs font-satoshi text-neutral-300">More</span>
         </div>
       </div>
     </div>

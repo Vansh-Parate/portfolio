@@ -46,9 +46,9 @@ export default function Home(){
   }, [])
 
   return(
-    <div className="min-h-screen bg-black text-neutral-100 flex items-center justify-center p-6">
+    <div className="min-h-screen bg-black text-neutral-100 flex items-center justify-center p-4 sm:p-6">
       <div className="w-full max-w-4xl">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16">
           {/* Left Column - Profile */}
           <div className="space-y-6">
             <div className="flex items-center gap-4">
