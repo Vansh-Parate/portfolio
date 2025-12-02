@@ -23,7 +23,7 @@ const Projects = () => {
     <div className='space-y-1'>
       {projects.map((project) =>(
         <a 
-          href={`/projects/${project.id}`}
+          href={`${project.demoUrl}`}
           className='group cursor-pointer block'
           onMouseEnter={() => setHoveredProject(project.id)}
           onMouseLeave={() => setHoveredProject(null)}
