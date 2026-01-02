@@ -54,8 +54,8 @@ export default function Home(){
             <div className="flex items-center gap-4">
               <Avatar src={pfpImage.src} alt="Vansh Parate" size="lg" className="avatar-hover" />
               <div>
-                <h1 className="text-xl font-satoshi font-semibold text-transition hover:text-neutral-200">Vansh Parate</h1>
-                <p className="text-neutral-400 text-sm font-satoshi font-light text-transition hover:text-neutral-300">@vanxh10</p>
+                <h1 className="text-3xl font-satoshi font-semibold text-transition hover:text-neutral-200">Vansh Parate</h1>
+                <p className="text-neutral-400 text-lg font-satoshi font-light text-transition hover:text-neutral-300">@vanxh10</p>
               </div>
             </div>
 

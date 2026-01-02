@@ -23,6 +23,19 @@ export default function GitHubContributions({ username }: GitHubContributionsPro
   useEffect(() => {
     const fetchContributions = async () => {
       try {
+        // Calculate date range for last 12 months
+        const today = new Date();
+        const endDate = new Date(today.getFullYear(), today.getMonth() + 1, 0); // Last day of current month
+        endDate.setHours(23, 59, 59, 999);
+        
+        // Start date: First day of the month 12 months ago
+        const startDate = new Date(today.getFullYear(), today.getMonth() - 11, 1);
+        startDate.setHours(0, 0, 0, 0);
+
+        // Format dates for GraphQL (ISO 8601)
+        const fromDate = startDate.toISOString();
+        const toDate = endDate.toISOString();
+
         const response = await fetch(
           `https://api.github.com/graphql`,
           {
@@ -35,7 +48,7 @@ export default function GitHubContributions({ username }: GitHubContributionsPro
               query: `
                 query {
                   user(login: "${username}") {
-                    contributionsCollection {
+                    contributionsCollection(from: "${fromDate}", to: "${toDate}") {
                       contributionCalendar {
                         totalContributions
                         weeks {
@@ -63,14 +76,9 @@ export default function GitHubContributions({ username }: GitHubContributionsPro
 
         const weeks = data.data?.user?.contributionsCollection?.contributionCalendar?.weeks || [];
         const allDays: ContributionDay[] = [];
-        const today = new Date();
-        const currentYear = today.getFullYear();
-        const yearStart = new Date(currentYear, 0, 1);
-        const yearEnd = new Date(currentYear, 11, 31);
-        yearEnd.setHours(23, 59, 59, 999);
 
-        // Find the first Sunday of the year
-        const firstSunday = new Date(yearStart);
+        // Find the first Sunday of the range (or before if needed for alignment)
+        const firstSunday = new Date(startDate);
         const dayOfWeek = firstSunday.getDay();
         if (dayOfWeek !== 0) {
           firstSunday.setDate(firstSunday.getDate() - dayOfWeek);
@@ -81,15 +89,15 @@ export default function GitHubContributions({ username }: GitHubContributionsPro
         weeks.forEach((week: any) => {
           week.contributionDays.forEach((day: any) => {
             const dayDate = new Date(day.date);
-            if (dayDate >= firstSunday && (dayDate.getFullYear() === currentYear || (dayDate.getMonth() === 0 && dayDate.getDate() <= 7))) {
+            if (dayDate >= startDate && dayDate <= endDate) {
               contributionMap[day.date] = day.contributionCount;
             }
           });
         });
 
-        // Fill in all days from first Sunday to end of year
+        // Fill in all days from first Sunday to end date
         let currentDate = new Date(firstSunday);
-        while (currentDate <= yearEnd) {
+        while (currentDate <= endDate) {
           const dateStr = currentDate.toISOString().split("T")[0];
           const count = contributionMap[dateStr] ?? 0;
 
@@ -118,16 +126,19 @@ export default function GitHubContributions({ username }: GitHubContributionsPro
         // Try to extract contribution data from the page
         const match = html.match(/data-total-contributions="(\d+)"/);
         if (match) {
-          // Generate contribution data for current year only
+          // Generate contribution data for last 12 months
           const today = new Date();
-          const currentYear = today.getFullYear();
-          const yearStart = new Date(currentYear, 0, 1);
-          const yearEnd = new Date(currentYear, 11, 31);
-          yearEnd.setHours(23, 59, 59, 999);
+          const endDate = new Date(today.getFullYear(), today.getMonth() + 1, 0); // Last day of current month
+          endDate.setHours(23, 59, 59, 999);
+          
+          // Start date: First day of the month 12 months ago
+          const startDate = new Date(today.getFullYear(), today.getMonth() - 11, 1);
+          startDate.setHours(0, 0, 0, 0);
+          
           const days: ContributionDay[] = [];
 
-          // Find the first Sunday of the year
-          const firstSunday = new Date(yearStart);
+          // Find the first Sunday of the range
+          const firstSunday = new Date(startDate);
           const dayOfWeek = firstSunday.getDay();
           if (dayOfWeek !== 0) {
             firstSunday.setDate(firstSunday.getDate() - dayOfWeek);
@@ -135,7 +146,7 @@ export default function GitHubContributions({ username }: GitHubContributionsPro
 
           let currentDate = new Date(firstSunday);
 
-          while (currentDate <= yearEnd) {
+          while (currentDate <= endDate) {
             // Only show random contributions for past dates, 0 for future dates
             const isFuture = currentDate > today;
             const count = isFuture ? 0 : Math.floor(Math.random() * 15);
@@ -244,7 +255,6 @@ export default function GitHubContributions({ username }: GitHubContributionsPro
 
   const monthLabels = getMonthLabels(contributions);
   const totalContributions = getTotalContributions();
-  const year = new Date(contributions[contributions.length - 1]?.date || new Date()).getFullYear();
 
   return (
     <div className="w-full rounded-lg p-3 sm:p-4 md:p-6 overflow-hidden">
@@ -315,7 +325,7 @@ export default function GitHubContributions({ username }: GitHubContributionsPro
       {/* Footer stats and legend */}
       <div className="flex items-center justify-between mt-4 pt-4 border-t border-neutral-800">
         <p className="text-[10px] sm:text-xs font-satoshi text-neutral-300">
-          {totalContributions} activities in {year}
+          {totalContributions} activities in the last 12 months
         </p>
         <div className="flex items-center gap-2">
           <span className="text-[10px] sm:text-xs font-satoshi text-neutral-300">Less</span>
