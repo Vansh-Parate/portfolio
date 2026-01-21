@@ -55,7 +55,9 @@ export default function Home(){
               <Avatar src={pfpImage.src} alt="Vansh Parate" size="lg" className="avatar-hover" />
               <div>
                 <h1 className="text-3xl font-satoshi font-semibold text-transition hover:text-neutral-200">Vansh Parate</h1>
-                <p className="text-neutral-400 text-lg font-satoshi font-light text-transition hover:text-neutral-300">@vanxh10</p>
+                <a href="https://twitter.com/vanxh10" target="_blank" rel="noopener noreferrer" className="text-neutral-400 text-lg font-satoshi font-light text-transition hover:text-neutral-300 cursor-pointer">
+                  @vanxh10
+                </a>
               </div>
             </div>
 
