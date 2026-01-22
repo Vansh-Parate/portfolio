@@ -10,7 +10,7 @@ import GitHubContributions from "@/components/GitHubContributions";
 import { AnimatedText } from "@/components/Text";
 import { cn } from "@/lib/utils";
 import { AnimatePresence } from "framer-motion";
-import { MailIcon, Github, Linkedin, Twitter, ExternalLink } from "lucide-react";
+import { MailIcon, Github, Linkedin, Twitter, ExternalLink, FileText } from "lucide-react";
 import { useEffect, useState } from "react";
 import pfpImage from "@/assets/pfp.jpeg";
 
@@ -77,7 +77,13 @@ export default function Home(){
               <span className="text-xs font-satoshi text-neutral-400 text-transition hover:text-neutral-300">Available for new opportunities</span>
             </div>
 
-            <div className="pt-4">
+            <div className="pt-4 flex gap-3">
+              <a href="https://drive.google.com/file/d/1-HhPNLWHF_TK4fOk9Hrz_4K2Wn6sEeKg/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+                <Button className="bg-neutral-100 text-black hover:bg-neutral-200 text-sm cursor-pointer hover-lift font-satoshi">
+                  <FileText className="w-4 h-4 mr-2" />
+                  Resume
+                </Button>
+              </a>
               <a href="mailto:vanshparate@gmail.com">
                 <Button className="bg-neutral-100 text-black hover:bg-neutral-200 text-sm cursor-pointer hover-lift font-satoshi">
                   <MailIcon className="w-4 h-4 mr-2" />
