@@ -57,7 +57,7 @@ const About = () => {
                 </a>
                 
                 <a 
-                  href="https://linkedin.com/in/vansh-parate0010" 
+                  href="https://www.linkedin.com/in/vansh-parate/" 
                   className="p-2 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-neutral-400 hover:text-neutral-100 hover-lift hover-glow group"
                   target="_blank"
                   rel="noopener noreferrer"
