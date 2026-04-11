@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { projects } from '@/data/projects'
-import { ChevronRight } from 'lucide-react';
+import { ExternalLink, ArrowUpRight } from 'lucide-react';
 
 const Projects = () => {
 
@@ -20,27 +20,62 @@ const Projects = () => {
   };
 
   return (
-    <div className='space-y-1'>
-      {projects.map((project) =>(
-        <a 
-          href={`${project.demoUrl}`}
-          className='group cursor-pointer block'
-          onMouseEnter={() => setHoveredProject(project.id)}
-          onMouseLeave={() => setHoveredProject(null)}
-        >
-          <div className="flex items-center justify-between py-3 px-3 rounded-lg hover:bg-neutral-900/30 transition-all duration-200">
-            <div className='flex-1'>
-              <div className="flex items-center gap-2 mb-1">
-                <span className="text-neutral-100 font-satoshi font-medium text-sm">{project.name}</span>
-                <span className={`px-1.5 py-0.5 text-[10px] font-satoshi font-medium rounded border ${getTypeColor(project.type)}`}>
+    <div className='mt-12 space-y-6'>
+      <h2 className="text-xl font-satoshi font-semibold text-neutral-100">Selected Projects</h2>
+      <div className='grid grid-cols-1 sm:grid-cols-2 gap-6'>
+        {projects.map((project) =>(
+          <div 
+            key={project.id}
+            className='group relative flex flex-col bg-neutral-900/40 border border-neutral-800/50 rounded-2xl overflow-hidden hover:bg-neutral-900/60 transition-all duration-300'
+            onMouseEnter={() => setHoveredProject(project.id)}
+            onMouseLeave={() => setHoveredProject(null)}
+          >
+            {/* Project Image Placeholder */}
+            <div className='relative h-48 w-full overflow-hidden bg-neutral-800/50'>
+              <div className="absolute inset-0 bg-neutral-800 animate-pulse"></div>
+              {/* Note: User will replace these with real images. */}
+              {project.image && (
+                <img 
+                  src={project.image} 
+                  alt={project.name}
+                  className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105"
+                  onError={(e) => {
+                    // Fallback to hide broken image icon until user adds the images
+                    e.currentTarget.style.display = 'none';
+                  }}
+                />
+              )}
+            </div>
+
+            <div className="flex flex-col flex-1 p-5">
+              <div className="flex items-start justify-between mb-2">
+                <h3 className="text-neutral-100 font-satoshi font-medium text-lg leading-tight group-hover:text-neutral-200 transition-colors">
+                  {project.name}
+                </h3>
+                <span className={`shrink-0 ml-3 px-2 py-0.5 text-[10px] font-satoshi font-medium rounded border ${getTypeColor(project.type)}`}>
                   {project.type}
                 </span>
               </div>
+              
+              <p className="text-neutral-400 text-sm font-satoshi leading-relaxed mb-6 flex-1">
+                {project.description}
+              </p>
+
+              <div className="mt-auto pt-4 border-t border-neutral-800/50 flex items-center justify-between">
+                <a 
+                  href={project.demoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs font-satoshi font-medium text-neutral-300 hover:text-white bg-neutral-800/50 hover:bg-neutral-700/50 px-3 py-1.5 rounded-full transition-all duration-200"
+                >
+                  Live Demo 
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </a>
+              </div>
             </div>
-            <ChevronRight className="w-3 h-3 text-neutral-600 group-hover:text-neutral-400 group-hover:translate-x-0.5 transition-all duration-200" />
-          </div>     
-        </a>
-      ))}  
+          </div>
+        ))}  
+      </div>
     </div>
   )
 }

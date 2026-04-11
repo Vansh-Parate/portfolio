@@ -28,7 +28,6 @@ export default function Home(){
 
   const renderContent = () => {
     switch(activeTab) {
-      case "projects": return <Projects />
       case "work": return <Work />
       case "about": return <About />
       default: return null
@@ -102,7 +101,17 @@ export default function Home(){
               {tabs.map((tab) => (
                 <button
                   key={tab.id}
-                  onClick={() => setActiveTab(tab.id)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (tab.id === 'projects') {
+                      const section = document.getElementById('projects-section');
+                      if (section) {
+                        section.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    } else {
+                      setActiveTab(tab.id);
+                    }
+                  }}
                   className={`pb-3 text-sm font-satoshi cursor-pointer font-medium tab-transition border-b-2 text-transition ${
                     activeTab === tab.id
                       ? "text-neutral-100 border-neutral-100"
@@ -122,6 +131,11 @@ export default function Home(){
         {/* GitHub Contributions */}
         <div className="-mt-15">
           <GitHubContributions username="Vansh-Parate" />
+        </div>
+
+        {/* Projects Section */}
+        <div id="projects-section">
+          <Projects />
         </div>
 
         {/* Footer */}

@@ -10,7 +10,8 @@ export const projects = [
       "Implemented advanced plant health monitoring system with disease detection, treatment recommendations, and interactive diagnostic workflows to help users maintain healthy plants.",
       "Built robust care scheduling system with automated reminders, weather-based watering adjustments, and detailed plant health analytics with visual trend charts."
     ],
-    demoUrl: "http://cultiva-plant.vercel.app/"
+    demoUrl: "http://cultiva-plant.vercel.app/",
+    image: "/cultiva.jpg"
   },
   
   {
@@ -24,7 +25,8 @@ export const projects = [
       "Implemented user authentication, profile management, and real-time messaging system for seamless mentor-student communication.",
       "Developed advanced search and filtering capabilities to help users find the perfect mentor based on skills, experience, and availability."
     ],
-    demoUrl: "https://acadly-mentor.vercel.app/"
+    demoUrl: "https://acadly-mentor.vercel.app/",
+    image: "/acadly-mentor.png"
   },
 
   {
@@ -38,7 +40,8 @@ export const projects = [
         "Implemented clean, minimalist design with focus on readability and visual appeal for travel content and photography.",
         "Deployed on Vercel with optimized performance."
       ],
-      demoUrl: "https://travel-blog-tan-beta.vercel.app/"
+      demoUrl: "https://travel-blog-tan-beta.vercel.app/",
+      image: "/travel-blog.png"
     },
 
     {
@@ -52,7 +55,8 @@ export const projects = [
         "Implemented interactive UI components with smooth animations and modern design principles for an engaging user experience.",
         "Built responsive design with Tailwind CSS ensuring optimal viewing across different devices and screen sizes."
       ],
-      demoUrl: "https://pixel-forge-chi.vercel.app/"
+      demoUrl: "https://pixel-forge-chi.vercel.app/",
+      image: "/pixel-forge.png"
     },
 
     {
@@ -66,7 +70,8 @@ export const projects = [
         "Developed robust transaction handling with Mongoose transaction modules to prevent data inconsistencies and ensure accurate balance transfers.",
         "Designed RESTful API architecture with separate user and account routes, extensively testing endpoints and debugging integration issues."
       ],
-      demoUrl: "https://x.com/radeon74055/status/1822940638179975212"
+      demoUrl: "https://x.com/radeon74055/status/1822940638179975212",
+      image: "/payease.png"
     },
     
   ]
