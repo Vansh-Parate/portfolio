@@ -16,21 +16,6 @@ export const projects = [
   },
 
   {
-    id: "nexus",
-    name: "Nexus - Startup-Investor Discovery Platform",
-    description: "AI-powered startup and investor matchmaking platform",
-    type: "Fullstack",
-    tech: ["React 19", "TypeScript", "Node.js", "Express", "PostgreSQL", "Prisma", "JWT", "WebSockets", "Tailwind CSS", "Google Gemini API"],
-    features: [
-      "Built an AI-powered investor matchmaking platform with ML regression scoring across sector, stage, ticket size, and idea similarity, reducing manual discovery effort by ~50%.",
-      "Integrated Google Gemini for AI pitch generation and WebSocket notifications, supporting 2 user roles with real-time automated outreach."
-    ],
-    demoUrl: "https://nexus-startup.vercel.app/",
-    image: "/nexus.jpg",
-    imageHome: "/nexus-home.png"
-  },
-
-  {
     id: "Cultiva",
     name: "Cultiva - Plant Care Assistant",
     description: "A comprehensive plant care management platform",
@@ -45,7 +30,22 @@ export const projects = [
     image: "/cultiva.jpg",
     imageHome: "/cultiva-home-1.png"
   },
-  
+
+  {
+    id: "nexus",
+    name: "Nexus - Startup-Investor Discovery Platform",
+    description: "AI-powered startup and investor matchmaking platform",
+    type: "Fullstack",
+    tech: ["React 19", "TypeScript", "Node.js", "Express", "PostgreSQL", "Prisma", "JWT", "WebSockets", "Tailwind CSS", "Google Gemini API"],
+    features: [
+      "Built an AI-powered investor matchmaking platform with ML regression scoring across sector, stage, ticket size, and idea similarity, reducing manual discovery effort by ~50%.",
+      "Integrated Google Gemini for AI pitch generation and WebSocket notifications, supporting 2 user roles with real-time automated outreach."
+    ],
+    demoUrl: "https://nexus-startup.vercel.app/",
+    image: "/nexus.jpg",
+    imageHome: "/nexus-home.png"
+  },
+
   {
     id: "acadly-mentor",
     name: "Acadly Mentor",
