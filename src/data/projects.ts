@@ -10,7 +10,9 @@ export const projects = [
       "Built a LangGraph AI feedback agent with Python-based facial and speech analyzers for multimodal post-session recovery insights.",
       "Developed an offline-first React Native Expo mobile app with MMKV-backed action queue, syncing sessions automatically on reconnect."
     ],
-    demoUrl: "https://github.com/Vansh-Parate/RehabOS"
+    demoUrl: "https://github.com/Vansh-Parate/RehabOS",
+    image: "/rehabos.jpg",
+    imageHome: "/rehabos-home.jpg"
   },
 
   {
@@ -23,7 +25,9 @@ export const projects = [
       "Built an AI-powered investor matchmaking platform with ML regression scoring across sector, stage, ticket size, and idea similarity, reducing manual discovery effort by ~50%.",
       "Integrated Google Gemini for AI pitch generation and WebSocket notifications, supporting 2 user roles with real-time automated outreach."
     ],
-    demoUrl: "https://nexus-startup.vercel.app/"
+    demoUrl: "https://nexus-startup.vercel.app/",
+    image: "/nexus.jpg",
+    imageHome: "/nexus-home.png"
   },
 
   {
@@ -38,7 +42,8 @@ export const projects = [
       "Built robust care scheduling system with automated reminders, weather-based watering adjustments, and detailed plant health analytics with visual trend charts."
     ],
     demoUrl: "http://cultiva-plant.vercel.app/",
-    image: "/cultiva.jpg"
+    image: "/cultiva.jpg",
+    imageHome: "/cultiva-home-1.png"
   },
   
   {
@@ -53,7 +58,8 @@ export const projects = [
       "Developed advanced search and filtering capabilities to help users find the perfect mentor based on skills, experience, and availability."
     ],
     demoUrl: "https://acadly-mentor.vercel.app/",
-    image: "/acadly-mentor.png"
+    image: "/acadly.jpg",
+    imageHome: "/acadly-home.jpg"
   },
 
   {
@@ -67,7 +73,8 @@ export const projects = [
       "Implemented clean, minimalist design with focus on readability and visual appeal for travel content and photography.",
       "Deployed on Vercel with optimized performance."
     ],
-    demoUrl: "https://travel-blog-tan-beta.vercel.app/"
+    demoUrl: "https://travel-blog-tan-beta.vercel.app/",
+    image: "/travel.jpg",
   },
 
   {
